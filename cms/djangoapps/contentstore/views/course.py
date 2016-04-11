@@ -980,7 +980,7 @@ def settings_handler(request, course_key_string):
             about_page_editable = not marketing_site_enabled
             enrollment_end_editable = GlobalStaff().has_user(request.user) or not marketing_site_enabled
             short_description_editable = settings.FEATURES.get('EDITABLE_SHORT_DESCRIPTION', True)
-
+            enable_extended_course_details = settings.FEATURES.get('ENABLE_EXTENDED_COURSE_DETAILS', False)
             self_paced_enabled = SelfPacedConfiguration.current().enabled
 
             settings_context = {
@@ -1001,6 +1001,7 @@ def settings_handler(request, course_key_string):
                 'is_prerequisite_courses_enabled': is_prerequisite_courses_enabled(),
                 'is_entrance_exams_enabled': is_entrance_exams_enabled(),
                 'self_paced_enabled': self_paced_enabled,
+                'enable_extended_course_details': enable_extended_course_details
             }
             if is_prerequisite_courses_enabled():
                 courses, in_process_course_actions = get_courses_accessible_to_user(request)
