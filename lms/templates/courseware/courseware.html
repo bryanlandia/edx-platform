@@ -123,7 +123,6 @@ ${fragment.foot_html()}
   <%include file="/courseware/course_navigation.html" args="active_page='courseware'" />
 % endif
 
-<main id="main" aria-label="content" tabindex="-1">
 <div class="container">
   <div class="course-wrapper" role="presentation">
 
@@ -170,6 +169,7 @@ ${fragment.foot_html()}
     </div>
 % endif
     <section class="course-content" id="course-content">
+        <main id="main" aria-label="Content" tabindex="-1">
         % if getattr(course, 'entrance_exam_enabled') and \
            getattr(course, 'entrance_exam_minimum_score_pct') and \
            entrance_exam_current_score is not UNDEFINED:
@@ -198,9 +198,10 @@ ${fragment.foot_html()}
                 )}
             </p>
             % endif
-      % endif
+        % endif
 
-      ${fragment.body_html()}
+          ${fragment.body_html()}
+        </main>
     </section>
 
     <section class="courseware-results-wrapper">
@@ -211,7 +212,6 @@ ${fragment.foot_html()}
 
   </div>
 </div>
-</main>
 <div class="container-footer">
   % if settings.FEATURES.get("LICENSING", False):
     <div class="course-license">
