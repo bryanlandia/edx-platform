@@ -11,7 +11,6 @@ from edx_rest_api_client.client import EdxRestApiClient
 from lms.djangoapps.certificates.api import get_certificates_for_user, is_passing_status
 
 from openedx.core.djangoapps.credentials.models import CredentialsApiConfig
-from openedx.core.djangoapps.credentials.utils import get_user_credentials
 from openedx.core.djangoapps.programs.models import ProgramsApiConfig
 from openedx.core.lib.token_utils import get_id_token
 
@@ -37,6 +36,7 @@ def get_api_client(api_config, student):
     return EdxRestApiClient(api_config.internal_api_url, jwt=id_token)
 
 
+# TODO: Move to program utilities. Will require updating tests.
 def get_completed_courses(student):
     """
     Determine which courses have been completed by the user.
@@ -87,6 +87,9 @@ def get_awarded_certificate_programs(student):
         ids of the programs for which the student has been awarded a certificate
 
     """
+    # Avoids circular imports
+    from openedx.core.djangoapps.credentials.utils import get_user_credentials
+
     return [
         credential['credential']['program_id']
         for credential in get_user_credentials(student)
