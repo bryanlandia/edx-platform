@@ -14,9 +14,36 @@
     ) %></p>
 </div>
 <div class="progress">
-    <div class="bar complete" style="width:<%- progress.percentage.completed %>;"><span class="sr"><%- progress.completed %></span></div>
-    <div class="bar in-progress" style="width:<%- progress.percentage.in_progress %>;"><span class="sr"><%- progress.in_progress %></span></div>
-    <div class="bar not-started"><span class="sr"><%- progress.not_started %></span></div>
+    <div class="bar complete" style="width:<%- progress.percentage.completed %>;">
+        <span class="sr"><%= interpolate(
+            ngettext(
+                '%(count)s course completed.',
+                '%(count)s courses completed.',
+                progress.completed
+            ),
+            {count: progress.completed}, true 
+        ) %></span>
+    </div>
+    <div class="bar in-progress" style="width:<%- progress.percentage.in_progress %>;">
+        <span class="sr"><%= interpolate(
+            ngettext(
+                '%(count)s course in progress.',
+                '%(count)s courses in progress.',
+                progress.in_progress
+            ),
+            {count: progress.in_progress}, true 
+        ) %></span>
+    </div>
+    <div class="bar not-started">
+        <span class="sr"><%= interpolate(
+            ngettext(
+                '%(count)s course not started yet.',
+                '%(count)s courses not started yet.',
+                progress.not_started
+            ),
+            {count: progress.not_started}, true 
+        ) %></span>
+    </div>
 </div>
 <a href="<%- marketingUrl %>" class="card-link">
     <div class="banner-image-container">

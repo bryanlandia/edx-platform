@@ -60,14 +60,14 @@
                 userProgress: [
                     {
                         programId: 146,
-                        completed: 4,
-                        in_progress: 2,
-                        not_started : 2
+                        completed: 1,
+                        in_progress: 1,
+                        not_started : 1
                     },
                     {
                         programId: 147,
                         completed: 5,
-                        in_progress: 1,
+                        in_progress: 2,
                         not_started: 0
                     }
                 ],
