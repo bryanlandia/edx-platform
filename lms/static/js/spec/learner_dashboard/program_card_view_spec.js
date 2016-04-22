@@ -76,7 +76,7 @@ define([
                 expect($card).toBeDefined();
                 expect($card.find('.title').html().trim()).toEqual(program.name);
                 expect($card.find('.category span').html().trim()).toEqual('XSeries Program');
-                expect($card.find('.organization').html().trim()).toEqual(program.organizations[0].display_name);
+                expect($card.find('.organization').html().trim()).toEqual(program.organizations[0].key);
                 expect($card.find('.card-link').attr('href')).toEqual(program.marketing_url);
             });
 
