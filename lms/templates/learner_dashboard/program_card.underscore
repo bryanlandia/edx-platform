@@ -5,7 +5,7 @@
         <div class="organization"><%- orgList %></div>
         <div class="category">
             <span class="category-text"><%- gettext(type) %></span>
-            <i class="xseries-icon" aria-hidden="true"></i>
+            <span class="xseries-icon" aria-hidden="true"></span>
         </div>
     </div>
     <p class="certificate-status"><%= interpolate(
