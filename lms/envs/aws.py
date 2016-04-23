@@ -131,6 +131,10 @@ if STATIC_URL_BASE:
 # DEFAULT_COURSE_ABOUT_IMAGE_URL specifies the default image to show for courses that don't provide one
 DEFAULT_COURSE_ABOUT_IMAGE_URL = ENV_TOKENS.get('DEFAULT_COURSE_ABOUT_IMAGE_URL', DEFAULT_COURSE_ABOUT_IMAGE_URL)
 
+# Settings for overriding default filtering facets and facet meanings for Course discovery
+COURSE_DISCOVERY_FILTERS = ENV_TOKENS.get('COURSE_DISCOVERY_FILTERS', None)
+COURSE_DISCOVERY_MEANINGS = ENV_TOKENS.get('COURSE_DISCOVERY_MEANINGS', None)
+
 # MEDIA_ROOT specifies the directory where user-uploaded files are stored.
 MEDIA_ROOT = ENV_TOKENS.get('MEDIA_ROOT', MEDIA_ROOT)
 MEDIA_URL = ENV_TOKENS.get('MEDIA_URL', MEDIA_URL)
